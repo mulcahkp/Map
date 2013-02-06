@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDb8qmaOJAQ8u_evBgi5WmiBpxp65GDgHE&sensor=false">
+</script>
+
+<script>
+var myCenter=new
+google.maps.LatLng(38.434064,-78.863501);
+
+function initialize()
+{
+  var mapProp = {
+    center:myCenter,
+    zoom:4,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+ 
+var marker=new google.maps.Marker({
+  position:myCenter,
+  });
+  
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Harrisonburg 22807"
+  });
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
+}
+	
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:1600px;height:900px;"></div>
+<br>
+
+</body>
